@@ -13,7 +13,7 @@ class GestionController extends Controller
 {
 
     /**
-     * @Route("/")
+     * @Route("/home")
      */
     public function indexAction()
     {
