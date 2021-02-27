@@ -1,0 +1,63 @@
+{% extends "layout.html.twig" %}
+{% block fos_user_content %}
+	<br>
+	<hr>
+	<span class="h5 card-title">Listado de Alumnos</span>
+	<hr>
+	{% include 'messages.html.twig' %}
+    <table id="dt-vertical-scroll" class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Telefono</th>
+            <th>Direccion</th>         
+            <th></th>   
+        </tr>
+        </thead>
+        <tbody>        
+          {% for a in alumnos %}
+
+              <tr>
+                <td>{{ a.apellido|upper }}</td>
+                <td>{{ a.nombre|upper }}</td>
+                <td>{{ a.documento }}</td>
+                <td>{{ a.telefono }}</td>  
+                <td>{{ a.direccion|upper}}</td>    
+                <td><a href="{{ path('editar_alumno', { id : a.id}) }}" class="btn btn-sm danger-color-dark text-white">Editar</a></td>
+              </tr>
+          {% endfor %}
+        </tbody>
+    </table>  
+{% endblock fos_user_content %}
+{% block javascripts %}
+
+<script type="text/javascript">
+
+  $('#dt-vertical-scroll').dataTable({
+                                      "scrollCollapse": true,
+                                      "paging": true,
+                                      "searching": true,
+                                      "language": {
+									            "lengthMenu": "",
+									            "zeroRecords": "",
+									            "search": "Buscar:",
+									            "info": "",
+									            "infoEmpty": "",
+									            "infoFiltered": "",
+								                "paginate": {
+														        "first":      "",
+														        "last":       "",
+														        "next":       "Sig.",
+														        "previous":   "Ant."
+														    }
+                                         },
+
+    "scrollY": false,
+  });
+
+
+</script>
+
+{% endblock  %}
