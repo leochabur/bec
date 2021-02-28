@@ -27,6 +27,8 @@ abstract class Ente
      */
     private $id;
 
+
+
     /**
      * @var string
      *

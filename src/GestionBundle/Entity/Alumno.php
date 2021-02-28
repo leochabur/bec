@@ -21,6 +21,8 @@ class Alumno extends Ente
     private $legajo;
 
 
+
+
     /**
      * Set legajo
      *
